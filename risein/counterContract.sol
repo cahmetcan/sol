@@ -2,15 +2,17 @@
 pragma solidity ^0.8.18;
 
 contract CounterContract {
+    address public owner;
+
     struct Counter {
         uint number;
         string description;
     }
 
-    address public owner;
     Counter counter;
 
     constructor(uint init_number, string memory init_desc) {
+        owner = msg.sender;
         counter = Counter(init_number, init_desc);
     }
 
