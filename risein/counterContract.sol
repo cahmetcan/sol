@@ -32,4 +32,8 @@ contract CounterContract {
     function current() external view returns (uint) {
         return counter.number;
     }
+
+    function description() external view returns (string memory) {
+        return counter.description;
+    }
 }
