@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.22;
+pragma solidity ^0.8.19;
+
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract ProposalContract {
     struct Proposal {
@@ -13,6 +15,5 @@ contract ProposalContract {
         bool is_active;
     }
 
-    mapping (uint256 => Proposal ) proposal_history;
-
+    mapping(uint256 => Proposal) proposal_history;
 }
