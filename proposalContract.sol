@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "./counterLib.sol";
 
 contract ProposalContract {
     struct Proposal {
@@ -15,5 +15,25 @@ contract ProposalContract {
         bool is_active;
     }
 
+    uint256 private counter;
+
     mapping(uint256 => Proposal) proposal_history;
+
+    function create(
+        string calldata title,
+        string calldata _description,
+        uint256 _total_vote_to_end
+    ) external {
+        counter += 1;
+        proposal_history[counter] = Proposal(
+            title,
+            _description,
+            0,
+            0,
+            0,
+            _total_vote_to_end,
+            false,
+            true
+        );
+    }
 }
