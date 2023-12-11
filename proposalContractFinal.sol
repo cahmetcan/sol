@@ -109,7 +109,7 @@ contract ProposalContract {
         return false;
     }
 
-    function vote(uint8 choice) external isActive {
+    function vote(uint8 choice) external isActive isNewVoter(msg.sender) {
         // 1 - approve // 2 - reject // 0 - pass
         Proposal storage proposal = proposal_history[counter];
         uint total_vote = proposal.approve + proposal.reject + proposal.pass;
